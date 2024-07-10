@@ -16,6 +16,9 @@ public record DoctorRegistrationDTO(
         @Email
         String email,
         @NotBlank
+        @JsonAlias("telefone")
+        String phoneNumber,
+        @NotBlank
         @Pattern(regexp = "\\d{4,6}")
         String crm,
         @NotNull

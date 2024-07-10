@@ -20,6 +20,7 @@ public class Doctor {
     private String name;
     @Column(unique = true)
     private String email;
+    private String phoneNumber;
     @Column(unique = true)
     private String crm;
     @Enumerated(EnumType.STRING)
@@ -30,6 +31,7 @@ public class Doctor {
     public Doctor(DoctorRegistrationDTO data) {
         this.name = data.name();
         this.email = data.email();
+        this.phoneNumber = data.phoneNumber();
         this.crm = data.crm();
         this.expertise = data.expertise();
         this.address = new Address(data.address());
