@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 import med.voll.api.dto.PatientDetailsDTO;
 import med.voll.api.dto.PatientListingDTO;
 import med.voll.api.dto.PatientRegistrationDTO;
+import med.voll.api.dto.PatientUpdateDTO;
 import med.voll.api.model.Patient;
 import med.voll.api.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,12 @@ public class PatientController {
     public ResponseEntity<Page<PatientListingDTO>> list(@PageableDefault(size=10, sort = {"name"}) Pageable pagination){
         var page = repository.findAll(pagination).map(PatientListingDTO::new);
         return ResponseEntity.ok(page);
+    }
+
+    @PutMapping
+    public ResponseEntity update(@RequestBody @Valid PatientUpdateDTO data){
+        Patient patient = repository.getReferenceById(data.id());
+        patient.updateData(data);
+        return ResponseEntity.ok(new PatientDetailsDTO(patient));
     }
 }
