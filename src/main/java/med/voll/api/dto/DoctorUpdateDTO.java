@@ -2,6 +2,7 @@ package med.voll.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.constraints.NotNull;
+import med.voll.api.model.Doctor;
 
 public record DoctorUpdateDTO(
     @NotNull
@@ -13,4 +14,5 @@ public record DoctorUpdateDTO(
     @JsonAlias("endereco")
     AddressDTO addressDTO
 ) {
+
 }
