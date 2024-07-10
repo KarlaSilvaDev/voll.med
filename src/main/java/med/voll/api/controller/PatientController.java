@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
-@RequestMapping("patients")
+@RequestMapping("/patients")
 public class PatientController {
 
     @Autowired
@@ -55,5 +55,11 @@ public class PatientController {
         Patient patient = repository.getReferenceById(id);
         patient.deactivate();
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity detail(@PathVariable Long id){
+        Patient patient = repository.getReferenceById(id);
+        return ResponseEntity.ok(new PatientDetailsDTO(patient));
     }
 }
