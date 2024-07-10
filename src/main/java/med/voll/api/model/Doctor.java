@@ -28,6 +28,7 @@ public class Doctor {
     private Expertise expertise;
     @Embedded
     private Address address;
+    private Boolean active;
 
     public Doctor(DoctorRegistrationDTO data) {
         this.name = data.name();
@@ -36,6 +37,7 @@ public class Doctor {
         this.crm = data.crm();
         this.expertise = data.expertise();
         this.address = new Address(data.address());
+        this.active = true;
     }
 
     public void updateData(DoctorUpdateDTO data) {
@@ -48,5 +50,9 @@ public class Doctor {
         if (data.addressDTO() != null){
             this.address.updateAddress(data.addressDTO());
         }
+    }
+
+    public void deactivate() {
+        this.active = false;
     }
 }
