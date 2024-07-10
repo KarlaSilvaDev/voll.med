@@ -1,9 +1,7 @@
-package med.voll.api.dto;
+package med.voll.api.dto.doctor;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyDescription;
-import jakarta.persistence.Column;
 import med.voll.api.model.Doctor;
 import med.voll.api.model.Expertise;
 

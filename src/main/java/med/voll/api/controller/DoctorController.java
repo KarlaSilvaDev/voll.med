@@ -2,10 +2,10 @@ package med.voll.api.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import med.voll.api.dto.DoctorDetailsDTO;
-import med.voll.api.dto.DoctorListingDTO;
-import med.voll.api.dto.DoctorRegistrationDTO;
-import med.voll.api.dto.DoctorUpdateDTO;
+import med.voll.api.dto.doctor.DoctorDetailsDTO;
+import med.voll.api.dto.doctor.DoctorListingDTO;
+import med.voll.api.dto.doctor.DoctorRegistrationDTO;
+import med.voll.api.dto.doctor.DoctorUpdateDTO;
 import med.voll.api.model.Doctor;
 import med.voll.api.repository.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
