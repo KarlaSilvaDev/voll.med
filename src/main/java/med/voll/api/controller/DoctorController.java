@@ -7,7 +7,7 @@ import med.voll.api.domain.doctor.DoctorListingDTO;
 import med.voll.api.domain.doctor.DoctorRegistrationDTO;
 import med.voll.api.domain.doctor.DoctorUpdateDTO;
 import med.voll.api.domain.doctor.Doctor;
-import med.voll.api.repository.DoctorRepository;
+import med.voll.api.domain.doctor.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
