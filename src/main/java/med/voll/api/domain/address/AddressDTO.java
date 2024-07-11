@@ -1,4 +1,4 @@
-package med.voll.api.dto;
+package med.voll.api.domain.address;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.constraints.NotBlank;

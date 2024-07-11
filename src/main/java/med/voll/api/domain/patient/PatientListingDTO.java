@@ -1,7 +1,6 @@
-package med.voll.api.dto.patient;
+package med.voll.api.domain.patient;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
-import med.voll.api.model.Patient;
 
 public record PatientListingDTO(
         Long id,

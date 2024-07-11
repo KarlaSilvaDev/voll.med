@@ -1,8 +1,8 @@
-package med.voll.api.dto.patient;
+package med.voll.api.domain.patient;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.constraints.NotNull;
-import med.voll.api.dto.AddressDTO;
+import med.voll.api.domain.address.AddressDTO;
 
 public record PatientUpdateDTO(@NotNull
                                Long id,

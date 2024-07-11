@@ -3,11 +3,11 @@ package med.voll.api.controller;
 import jakarta.transaction.Transactional;
 
 import jakarta.validation.Valid;
-import med.voll.api.dto.patient.PatientDetailsDTO;
-import med.voll.api.dto.patient.PatientListingDTO;
-import med.voll.api.dto.patient.PatientRegistrationDTO;
-import med.voll.api.dto.patient.PatientUpdateDTO;
-import med.voll.api.model.Patient;
+import med.voll.api.domain.patient.PatientDetailsDTO;
+import med.voll.api.domain.patient.PatientListingDTO;
+import med.voll.api.domain.patient.PatientRegistrationDTO;
+import med.voll.api.domain.patient.PatientUpdateDTO;
+import med.voll.api.domain.patient.Patient;
 import med.voll.api.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

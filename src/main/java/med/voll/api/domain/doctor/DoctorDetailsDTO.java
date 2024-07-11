@@ -1,8 +1,6 @@
-package med.voll.api.dto.doctor;
+package med.voll.api.domain.doctor;
 
-import med.voll.api.model.Address;
-import med.voll.api.model.Doctor;
-import med.voll.api.model.Expertise;
+import med.voll.api.domain.address.Address;
 
 public record DoctorDetailsDTO(Long id, String name, String email, String phoneNumber, String crm, Expertise expertise, Address address) {
     public DoctorDetailsDTO(Doctor doctor){

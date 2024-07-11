@@ -1,4 +1,4 @@
-package med.voll.api.dto.patient;
+package med.voll.api.domain.patient;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.Valid;
@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import med.voll.api.dto.AddressDTO;
+import med.voll.api.domain.address.AddressDTO;
 
 public record PatientRegistrationDTO(
         @NotBlank(message = "{name.required}")

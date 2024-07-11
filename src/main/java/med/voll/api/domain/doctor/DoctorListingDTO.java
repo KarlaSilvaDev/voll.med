@@ -1,9 +1,7 @@
-package med.voll.api.dto.doctor;
+package med.voll.api.domain.doctor;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import med.voll.api.model.Doctor;
-import med.voll.api.model.Expertise;
 
 public record DoctorListingDTO (
     Long id,

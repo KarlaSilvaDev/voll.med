@@ -1,4 +1,4 @@
-package med.voll.api.model;
+package med.voll.api.domain.patient;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -7,8 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import med.voll.api.dto.patient.PatientRegistrationDTO;
-import med.voll.api.dto.patient.PatientUpdateDTO;
+import med.voll.api.domain.address.Address;
 
 @Entity(name = "Patient")
 @Table(name = "patients")
