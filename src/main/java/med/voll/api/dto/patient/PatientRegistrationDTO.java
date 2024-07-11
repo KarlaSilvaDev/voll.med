@@ -9,19 +9,19 @@ import jakarta.validation.constraints.Pattern;
 import med.voll.api.dto.AddressDTO;
 
 public record PatientRegistrationDTO(
-        @NotBlank
+        @NotBlank(message = "{name.required}")
         @JsonAlias("nome")
         String name,
-        @NotBlank
-        @Email
+        @NotBlank(message = "{email.required}")
+        @Email(message = "{email.invalid}")
         String email,
-        @NotBlank
+        @NotBlank(message = "{phoneNumber.required}")
         @JsonAlias("telefone")
         String phoneNumber,
-        @NotBlank
-        @Pattern(regexp = "\\d{11}")
+        @NotBlank(message = "{cpf.required}")
+        @Pattern(regexp = "\\d{11}", message = "{cpf.invalid}")
         String cpf,
-        @NotNull
+        @NotNull(message = "{address.required}")
         @Valid
         @JsonAlias("endereco")
         AddressDTO address) {

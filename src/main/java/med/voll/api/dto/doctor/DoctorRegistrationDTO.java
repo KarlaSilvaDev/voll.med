@@ -10,22 +10,22 @@ import med.voll.api.dto.AddressDTO;
 import med.voll.api.model.Expertise;
 
 public record DoctorRegistrationDTO(
-        @NotBlank
+        @NotBlank(message = "{name.required}")
         @JsonAlias("nome")
         String name,
-        @NotBlank
-        @Email
+        @NotBlank(message = "{email.required}")
+        @Email(message = "{email.invalid}")
         String email,
-        @NotBlank
+        @NotBlank(message = "{phoneNumber.required}")
         @JsonAlias("telefone")
         String phoneNumber,
-        @NotBlank
-        @Pattern(regexp = "\\d{4,6}")
+        @NotBlank(message = "{crm.required}")
+        @Pattern(regexp = "\\d{4,6}", message = "{crm.invalid}")
         String crm,
-        @NotNull
+        @NotNull(message = "{expertise.required}")
         @JsonAlias("especialidade")
         Expertise expertise,
-        @NotNull
+        @NotNull(message = "{address.required}")
         @Valid
         @JsonAlias("endereco")
         AddressDTO address) {
