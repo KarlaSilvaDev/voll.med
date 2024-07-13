@@ -1,5 +1,6 @@
 package med.voll.api.domain.appointment;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.Future;
@@ -9,6 +10,7 @@ import med.voll.api.domain.doctor.Expertise;
 import java.time.LocalDateTime;
 
 public record AppointmentSchedulingDTO(@JsonProperty("idMedico")
+                                       @JsonAlias("idMedico")
                                        Long doctorId,
                                        @NotNull(message = "{pacientId.required}")
                                        @JsonProperty("idPaciente")

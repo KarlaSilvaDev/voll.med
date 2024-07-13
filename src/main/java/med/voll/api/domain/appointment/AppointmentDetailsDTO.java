@@ -1,4 +1,9 @@
 package med.voll.api.domain.appointment;
 
-public record AppointmentDetailsDTO(Object o, Object o1, Object o2, Object o3) {
+import java.time.LocalDateTime;
+
+public record AppointmentDetailsDTO(Long id, Long doctorId, Long patientId, LocalDateTime scheduledDate) {
+    public AppointmentDetailsDTO(Appointment appointment) {
+        this(appointment.getId(), appointment.getDoctor().getId(), appointment.getPatient().getId(), appointment.getScheduledDate());
+    }
 }
