@@ -15,7 +15,7 @@
 </p>
 
 ## Descrição
-A aplicação Voll.med é uma API RESTful que permite o agendamento de consultas médica, visando conectar pacientes e médicos, facilitando o acesso à saúde.
+A aplicação Voll.med é uma API RESTful que permite o agendamento de consultas médicas, visando conectar pacientes e médicos, facilitando o acesso à saúde.
 
 ## Funcionalidades
 
