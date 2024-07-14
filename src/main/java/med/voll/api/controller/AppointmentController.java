@@ -2,9 +2,8 @@ package med.voll.api.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import med.voll.api.domain.appointment.AppointmentCancellationDTO;
-import med.voll.api.domain.appointment.AppointmentDetailsDTO;
-import med.voll.api.domain.appointment.AppointmentSchedulingDTO;
+import med.voll.api.domain.appointment.dto.AppointmentCancellationDTO;
+import med.voll.api.domain.appointment.dto.AppointmentSchedulingDTO;
 import med.voll.api.domain.appointment.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,5 +29,4 @@ public class AppointmentController {
         service.cancel(data);
         return ResponseEntity.noContent().build();
     }
-
 }

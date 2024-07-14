@@ -8,6 +8,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import med.voll.api.domain.address.Address;
+import med.voll.api.domain.patient.dto.PatientRegistrationDTO;
+import med.voll.api.domain.patient.dto.PatientUpdateDTO;
 
 @Entity(name = "Patient")
 @Table(name = "patients")
@@ -16,7 +18,6 @@ import med.voll.api.domain.address.Address;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Patient {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

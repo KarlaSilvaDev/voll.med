@@ -1,7 +1,7 @@
 package med.voll.api.domain.appointment.validations.cancellation;
 
 import med.voll.api.domain.DataValidationException;
-import med.voll.api.domain.appointment.AppointmentCancellationDTO;
+import med.voll.api.domain.appointment.dto.AppointmentCancellationDTO;
 import med.voll.api.domain.appointment.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,6 +24,5 @@ public class AppointmentEarlyCancellationValidator implements AppointmentCancell
         if (hourDifference < 24) {
             throw new DataValidationException("Consulta somente pode ser cancelada com antecedência mínima de 24h!");
         }
-
     }
 }

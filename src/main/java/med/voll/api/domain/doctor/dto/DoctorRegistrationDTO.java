@@ -1,4 +1,4 @@
-package med.voll.api.domain.patient;
+package med.voll.api.domain.doctor.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.Valid;
@@ -8,7 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import med.voll.api.domain.address.AddressDTO;
 
-public record PatientRegistrationDTO(
+public record DoctorRegistrationDTO(
         @NotBlank(message = "{name.required}")
         @JsonAlias("nome")
         String name,
@@ -18,9 +18,12 @@ public record PatientRegistrationDTO(
         @NotBlank(message = "{phoneNumber.required}")
         @JsonAlias("telefone")
         String phoneNumber,
-        @NotBlank(message = "{cpf.required}")
-        @Pattern(regexp = "\\d{11}", message = "{cpf.invalid}")
-        String cpf,
+        @NotBlank(message = "{crm.required}")
+        @Pattern(regexp = "\\d{4,6}", message = "{crm.invalid}")
+        String crm,
+        @NotNull(message = "{expertise.required}")
+        @JsonAlias("especialidade")
+        Expertise expertise,
         @NotNull(message = "{address.required}")
         @Valid
         @JsonAlias("endereco")

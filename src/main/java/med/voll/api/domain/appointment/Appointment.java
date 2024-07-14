@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import med.voll.api.domain.appointment.dto.CancellationReason;
 import med.voll.api.domain.doctor.Doctor;
 import med.voll.api.domain.patient.Patient;
 

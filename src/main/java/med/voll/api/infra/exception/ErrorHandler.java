@@ -1,5 +1,7 @@
 package med.voll.api.infra.exception;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.EntityNotFoundException;
 import med.voll.api.domain.DataValidationException;
 import org.springframework.http.HttpStatus;
@@ -12,8 +14,6 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import java.security.AccessControlException;
 
 @RestControllerAdvice
 public class ErrorHandler {
@@ -59,11 +59,11 @@ public class ErrorHandler {
         return ResponseEntity.badRequest().body(new ErrorMessage(ex.getMessage()));
     }
 
-    private record ErrorDataValidation(String field, String message){
+    private record ErrorDataValidation(@JsonAlias("campo") String field, @JsonAlias("mensagem") String message){
         public ErrorDataValidation(FieldError error){
             this(error.getField(), error.getDefaultMessage());
         }
     }
 
-    private record ErrorMessage(String message){}
+    private record ErrorMessage(@JsonProperty("mensagem") String message){}
 }

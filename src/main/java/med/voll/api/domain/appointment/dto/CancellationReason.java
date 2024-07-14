@@ -1,4 +1,4 @@
-package med.voll.api.domain.appointment;
+package med.voll.api.domain.appointment.dto;
 
 public enum CancellationReason {
     PACIENTE_DESISTIU,

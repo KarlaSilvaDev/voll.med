@@ -2,6 +2,9 @@ package med.voll.api.domain.appointment;
 
 import jakarta.validation.ValidationException;
 import med.voll.api.domain.DataValidationException;
+import med.voll.api.domain.appointment.dto.AppointmentCancellationDTO;
+import med.voll.api.domain.appointment.dto.AppointmentDetailsDTO;
+import med.voll.api.domain.appointment.dto.AppointmentSchedulingDTO;
 import med.voll.api.domain.appointment.validations.cancellation.AppointmentCancellationValidator;
 import med.voll.api.domain.appointment.validations.scheduling.AppointmentSchedulingValidator;
 import med.voll.api.domain.doctor.Doctor;

@@ -1,7 +1,7 @@
 package med.voll.api.domain.appointment.validations.scheduling;
 
 import med.voll.api.domain.DataValidationException;
-import med.voll.api.domain.appointment.AppointmentSchedulingDTO;
+import med.voll.api.domain.appointment.dto.AppointmentSchedulingDTO;
 import med.voll.api.domain.patient.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,7 +13,6 @@ public class ActivePatientValidator implements AppointmentSchedulingValidator {
     private PatientRepository repository;
 
     public void validate(AppointmentSchedulingDTO data){
-
         var patientIsActive = repository.findActiveById(data.patientId());
 
         if (!patientIsActive){

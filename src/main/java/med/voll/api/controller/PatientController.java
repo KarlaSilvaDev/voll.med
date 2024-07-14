@@ -1,14 +1,11 @@
 package med.voll.api.controller;
 
 import jakarta.transaction.Transactional;
-
 import jakarta.validation.Valid;
-import med.voll.api.domain.patient.PatientDetailsDTO;
-import med.voll.api.domain.patient.PatientListingDTO;
-import med.voll.api.domain.patient.PatientRegistrationDTO;
-import med.voll.api.domain.patient.PatientUpdateDTO;
-import med.voll.api.domain.patient.Patient;
-import med.voll.api.domain.patient.PatientRepository;
+import med.voll.api.domain.patient.PatientService;
+import med.voll.api.domain.patient.dto.PatientListingDTO;
+import med.voll.api.domain.patient.dto.PatientRegistrationDTO;
+import med.voll.api.domain.patient.dto.PatientUpdateDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,44 +19,39 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class PatientController {
 
     @Autowired
-    private PatientRepository repository;
+    private PatientService service;
 
     @PostMapping
     @Transactional
     public ResponseEntity register(@RequestBody @Valid PatientRegistrationDTO data, UriComponentsBuilder uriBuilder){
-        var patient = new Patient(data);
-        repository.save(patient);
-
-        var uri = uriBuilder.path("/patients/{id}").buildAndExpand(patient.getId()).toUri();
-
-        return ResponseEntity.created(uri).body(new PatientDetailsDTO(patient));
+        var patientDetails = service.register(data);
+        var uri = uriBuilder.path("/patients/{id}").buildAndExpand(patientDetails.id()).toUri();
+        return ResponseEntity.created(uri).body(patientDetails);
     }
 
     @GetMapping
     public ResponseEntity<Page<PatientListingDTO>> list(@PageableDefault(size=10, sort = {"name"}) Pageable pagination){
-        var page = repository.findAllByActiveTrue(pagination).map(PatientListingDTO::new);
+        var page = service.list(pagination);
         return ResponseEntity.ok(page);
     }
 
     @PutMapping
     @Transactional
     public ResponseEntity update(@RequestBody @Valid PatientUpdateDTO data){
-        Patient patient = repository.getReferenceById(data.id());
-        patient.updateData(data);
-        return ResponseEntity.ok(new PatientDetailsDTO(patient));
+        var patientDetails = service.update(data);
+        return ResponseEntity.ok(patientDetails);
     }
 
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity delete(@PathVariable Long id){
-        Patient patient = repository.getReferenceById(id);
-        patient.deactivate();
+        service.delete(id);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity detail(@PathVariable Long id){
-        Patient patient = repository.getReferenceById(id);
-        return ResponseEntity.ok(new PatientDetailsDTO(patient));
+        var patientDetails = service.detail(id);
+        return ResponseEntity.ok(patientDetails);
     }
 }

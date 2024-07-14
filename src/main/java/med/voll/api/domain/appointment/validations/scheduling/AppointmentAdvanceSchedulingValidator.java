@@ -1,7 +1,7 @@
 package med.voll.api.domain.appointment.validations.scheduling;
 
 import med.voll.api.domain.DataValidationException;
-import med.voll.api.domain.appointment.AppointmentSchedulingDTO;
+import med.voll.api.domain.appointment.dto.AppointmentSchedulingDTO;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;

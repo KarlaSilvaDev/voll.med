@@ -1,7 +1,7 @@
 package med.voll.api.domain.appointment.validations.scheduling;
 
 import med.voll.api.domain.DataValidationException;
-import med.voll.api.domain.appointment.AppointmentSchedulingDTO;
+import med.voll.api.domain.appointment.dto.AppointmentSchedulingDTO;
 import org.springframework.stereotype.Component;
 
 import java.time.DayOfWeek;
@@ -17,7 +17,5 @@ public class ClinicOpeningHoursValidator implements AppointmentSchedulingValidat
         if (sunday || beforeOpeningTime || afterClosingTime){
             throw new DataValidationException("Consulta fora do horário de funcionamento da clínica.");
         }
-
-
     }
 }

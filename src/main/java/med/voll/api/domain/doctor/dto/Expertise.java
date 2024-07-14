@@ -1,4 +1,4 @@
-package med.voll.api.domain.doctor;
+package med.voll.api.domain.doctor.dto;
 
 public enum Expertise {
     ORTOPEDIA,

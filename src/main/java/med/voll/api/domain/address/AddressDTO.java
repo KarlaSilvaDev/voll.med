@@ -5,24 +5,24 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
 public record AddressDTO(
-        @NotBlank
-        @JsonAlias("logradouro")
+        @NotBlank(message = "{street.required}")
+        @JsonAlias({"logradouro","street"})
         String street,
-        @NotBlank
-        @JsonAlias("bairro")
+        @NotBlank(message = "{neighborhood.required}")
+        @JsonAlias({"bairro", "neighborhood"})
         String neighborhood,
-        @NotBlank
+        @NotBlank(message = "{zipCode.required}")
         @Pattern(regexp = "\\d{8}")
-        @JsonAlias("cep")
+        @JsonAlias({"cep", "zipCode", "zip_code"})
         String zipCode,
-        @NotBlank
-        @JsonAlias("cidade")
+        @NotBlank(message = "{city.required}")
+        @JsonAlias({"cidade", "city"})
         String city,
-        @NotBlank
-        @JsonAlias("uf")
+        @NotBlank(message = "{uf.required}")
+        @JsonAlias({"uf", "estado", "state"})
         String state,
-        @JsonAlias("complemento")
+        @JsonAlias({"complemento", "complement"})
         String complement,
-        @JsonAlias("numero")
+        @JsonAlias({"numero", "number"})
         String number) {
 }

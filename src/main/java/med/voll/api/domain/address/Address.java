@@ -1,5 +1,7 @@
 package med.voll.api.domain.address;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,13 +11,21 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonPropertyOrder({"street", "number", "neighborhood", "city", "state", "complement", "zipCode" })
 public class Address {
+    @JsonProperty("logradouro")
     private String street;
+    @JsonProperty("bairro")
     private String neighborhood;
+    @JsonProperty("cep")
     private String zipCode;
+    @JsonProperty("numero")
     private String number;
+    @JsonProperty("complemento")
     private String complement;
+    @JsonProperty("cidade")
     private String city;
+    @JsonProperty("uf")
     private String state;
 
     public Address(AddressDTO address) {

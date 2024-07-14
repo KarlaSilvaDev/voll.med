@@ -13,5 +13,11 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
             WHERE 
             p.id = :id
            """)
-    Boolean findActiveById(Long id);
+    boolean findActiveById(Long id);
+
+    @Query("SELECT COUNT(p) > 0 FROM Patient p WHERE p.email = :email")
+    boolean existsByEmail(String email);
+
+    @Query("SELECT COUNT(p) > 0 FROM Patient p WHERE p.cpf = :cpf")
+    boolean existsByCpf(String cpf);
 }
